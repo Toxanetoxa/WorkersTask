@@ -1,20 +1,18 @@
 const express = require("express");
 const cors = require("cors");
+const path = __dirname + './views/';
 
 const app = express();
 
 var corsOptions = {
-  origin: [
-      "http://localhost:8081",
-      "http://192.168.1.253:8081",
-      "http://185.233.2.180:8081"
-  ]
+  origin: "http://localhost:8081"
 };
 
 app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path));
 
 const db = require("./models");
 db.mongoose
@@ -31,7 +29,7 @@ db.mongoose
   });
 
 app.get("/", (req, res) => {
-  res.json({ message: "Test task MEVN" });
+  res.sendFile("../views/index.html");
 });
 
 require("./routes/Workers.routes")(app);
