@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     saveWorkers() {
-      var data = {
+      let data = {
         UserName: this.Workers.UserName,
         LastName: this.Workers.LastName,
         Patronymic: this.Workers.Patronymic,

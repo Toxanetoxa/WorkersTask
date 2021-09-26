@@ -92,7 +92,7 @@ export default {
     },
 
     updatePublished(status) {
-      var data = {
+      let data = {
         id: this.currentWorkers.id,
         UserName: this.currentWorkers.UserName,
         LastName: this.currentWorkers.LastName,
